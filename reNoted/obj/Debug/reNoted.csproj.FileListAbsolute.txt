@@ -1,0 +1,11 @@
+C:\jason\code\reNoted\reNoted\bin\Debug\reNoted.exe
+C:\jason\code\reNoted\reNoted\bin\Debug\reNoted.pdb
+C:\jason\code\reNoted\reNoted\obj\Debug\ResolveAssemblyReference.cache
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.Properties.Resources.resources
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.csproj.GenerateResource.Cache
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.exe
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.pdb
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.reNotedMainWindow.resources
+C:\jason\code\reNoted\reNoted\bin\Debug\reNoted.exe.config
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.AboutBox.resources
+C:\jason\code\reNoted\reNoted\obj\Debug\reNoted.Preferences.resources

@@ -17,22 +17,37 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace reNoted
 {
-    static class Program
+    public partial class reNotedMainWindow : Form
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        reNotedHandler handler;
+        public reNotedMainWindow()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new reNotedMainWindow());
+            InitializeComponent();
+            handler = new reNotedHandler(this);
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            handler.callAboutWindow();
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            handler.callPreferenceWindow();
+        }
+
+        private void reNotedMainWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
