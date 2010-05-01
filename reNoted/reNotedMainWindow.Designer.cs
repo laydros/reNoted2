@@ -46,9 +46,7 @@ namespace reNoted
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.reNotedListView1 = new reNoted.reNotedListView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.searchAndTitleBox1 = new reNoted.SearchAndTitleBox();
             this.clearAllButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +55,10 @@ namespace reNoted
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteAsNewNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +71,8 @@ namespace reNoted
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.editTextBox1 = new reNoted.editTextBox();
+            this.reNotedListView1 = new reNoted.reNotedListView();
+            this.searchAndTitleBox1 = new reNoted.SearchAndTitleBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -89,15 +89,6 @@ namespace reNoted
             this.panel1.Size = new System.Drawing.Size(342, 174);
             this.panel1.TabIndex = 0;
             // 
-            // reNotedListView1
-            // 
-            this.reNotedListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reNotedListView1.Location = new System.Drawing.Point(0, 27);
-            this.reNotedListView1.Name = "reNotedListView1";
-            this.reNotedListView1.Size = new System.Drawing.Size(342, 147);
-            this.reNotedListView1.TabIndex = 2;
-            this.reNotedListView1.UseCompatibleStateImageBehavior = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -113,14 +104,6 @@ namespace reNoted
             this.tableLayoutPanel1.Size = new System.Drawing.Size(342, 27);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // searchAndTitleBox1
-            // 
-            this.searchAndTitleBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchAndTitleBox1.Location = new System.Drawing.Point(3, 3);
-            this.searchAndTitleBox1.Name = "searchAndTitleBox1";
-            this.searchAndTitleBox1.Size = new System.Drawing.Size(278, 20);
-            this.searchAndTitleBox1.TabIndex = 0;
-            // 
             // clearAllButton
             // 
             this.clearAllButton.Location = new System.Drawing.Point(287, 3);
@@ -129,6 +112,7 @@ namespace reNoted
             this.clearAllButton.TabIndex = 1;
             this.clearAllButton.Text = "Clear";
             this.clearAllButton.UseVisualStyleBackColor = true;
+            this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
             // menuStrip1
             // 
@@ -181,14 +165,15 @@ namespace reNoted
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cutToolStripMenuItem,
+            this.undoToolStripMenuItem,
             this.redoToolStripMenuItem,
             this.toolStripSeparator2,
-            this.cutToolStripMenuItem1,
+            this.cutToolStripMenuItem,
             this.copyToolStripMenuItem,
             this.pasteToolStripMenuItem,
             this.pasteAsNewNoteToolStripMenuItem,
@@ -199,12 +184,12 @@ namespace reNoted
             this.editToolStripMenuItem.Size = new System.Drawing.Size(31, 24);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
-            // cutToolStripMenuItem
+            // undoToolStripMenuItem
             // 
-            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.cutToolStripMenuItem.Text = "&Undo";
+            this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
+            this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
             // 
@@ -218,12 +203,12 @@ namespace reNoted
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(241, 6);
             // 
-            // cutToolStripMenuItem1
+            // cutToolStripMenuItem
             // 
-            this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
-            this.cutToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem1.Size = new System.Drawing.Size(244, 22);
-            this.cutToolStripMenuItem1.Text = "Cu&t";
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
+            this.cutToolStripMenuItem.Text = "Cu&t";
             // 
             // copyToolStripMenuItem
             // 
@@ -318,6 +303,28 @@ namespace reNoted
             this.editTextBox1.Size = new System.Drawing.Size(342, 210);
             this.editTextBox1.TabIndex = 0;
             // 
+            // reNotedListView1
+            // 
+            this.reNotedListView1.AllowColumnReorder = true;
+            this.reNotedListView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reNotedListView1.FullRowSelect = true;
+            this.reNotedListView1.Location = new System.Drawing.Point(0, 27);
+            this.reNotedListView1.MultiSelect = false;
+            this.reNotedListView1.Name = "reNotedListView1";
+            this.reNotedListView1.Size = new System.Drawing.Size(342, 147);
+            this.reNotedListView1.TabIndex = 2;
+            this.reNotedListView1.UseCompatibleStateImageBehavior = false;
+            this.reNotedListView1.View = System.Windows.Forms.View.Details;
+            this.reNotedListView1.SelectedIndexChanged += new System.EventHandler(this.reNotedListView1_SelectedIndexChanged);
+            // 
+            // searchAndTitleBox1
+            // 
+            this.searchAndTitleBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchAndTitleBox1.Location = new System.Drawing.Point(3, 3);
+            this.searchAndTitleBox1.Name = "searchAndTitleBox1";
+            this.searchAndTitleBox1.Size = new System.Drawing.Size(278, 20);
+            this.searchAndTitleBox1.TabIndex = 0;
+            // 
             // reNotedMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +338,7 @@ namespace reNoted
             this.Name = "reNotedMainWindow";
             this.Text = "reNoted";
             this.Load += new System.EventHandler(this.reNotedMainWindow_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.reNotedMainWindow_FormClosing);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -353,10 +361,10 @@ namespace reNoted
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem undoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -365,14 +373,14 @@ namespace reNoted
         private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.Splitter splitter1;
+        internal System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripMenuItem pasteAsNewNoteToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private SearchAndTitleBox searchAndTitleBox1;
+        internal SearchAndTitleBox searchAndTitleBox1;
         private System.Windows.Forms.Button clearAllButton;
-        private reNotedListView reNotedListView1;
-        private editTextBox editTextBox1;
+        internal reNotedListView reNotedListView1;
+        internal editTextBox editTextBox1;
     }
 }
 

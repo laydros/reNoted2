@@ -106,5 +106,65 @@ namespace reNoted.Properties {
                 this["externalEditorPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int splitterHeight {
+            get {
+                return ((int)(this["splitterHeight"]));
+            }
+            set {
+                this["splitterHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool useCreationDateColumn {
+            get {
+                return ((bool)(this["useCreationDateColumn"]));
+            }
+            set {
+                this["useCreationDateColumn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool useModifiedDateColumn {
+            get {
+                return ((bool)(this["useModifiedDateColumn"]));
+            }
+            set {
+                this["useModifiedDateColumn"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("450")]
+        public int reNotedMainWinHeight {
+            get {
+                return ((int)(this["reNotedMainWinHeight"]));
+            }
+            set {
+                this["reNotedMainWinHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("350")]
+        public int reNotedMainWinWidth {
+            get {
+                return ((int)(this["reNotedMainWinWidth"]));
+            }
+            set {
+                this["reNotedMainWinWidth"] = value;
+            }
+        }
     }
 }

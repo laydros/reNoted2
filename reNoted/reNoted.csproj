@@ -103,13 +103,14 @@
     <Compile Include="reNotedListView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="reNotedTimeHandler.cs" />
     <Compile Include="SearchAndTitleBox.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="COPYING.TXT" />
-    <Content Include="README.txt" />
+    <Content Include="README.TXT" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

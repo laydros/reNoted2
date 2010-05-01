@@ -1,4 +1,4 @@
-﻿// Copyright 2010, Jason Hamilton (laydros.org)
+﻿// Copyright 2010, Jason Hamilton
 // http://www.laydros.net
 // All Rights Reserved
 //
